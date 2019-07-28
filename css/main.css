@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap');
+
+:root {
+  --background-main: #f2f6f5;
+  --background-table: #c8dad3;
+  /* --background-is-active: #93b5b3; */
+  --background-is-active: darkslategrey;
+  --color-borders: #63707e;
+  --color-l-light: #c6e377;
+  --color-l-dark: #729d39;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden !important;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: var(--background-main);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header-logo {
+  transform: rotate(-5deg);
+}
+
+.header-title {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 300%;
+  align-self: center;
+}
+
+
+.card {
+  padding: 0.3rem;
+  height: 100%;
+  color: white;
+  text-align: center;
+}
+
+.card .content {
+  padding: 0.5rem;
+  height: 100%;
+  background: lightgrey;
+  border-radius: 5px;
+}
+
+.card .content .title {
+  margin-top: -0.3rem;
+}
+
+.lunch, .dinner {
+  min-height: 13rem;
+}
+
+.card .todays {
+  background-color: var(--background-is-active) !important;
+  border: 1px solid var(--background-is-active) !important;
+}
+
+.card ul {
+  list-style: none;
+  padding-inline-start: 0px;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+}
+
+.card ul.unstyled {
+  padding-inline-start: 0.5rem;
+  width: 100%;
+}
+
+.card li {
+  border-bottom: solid 1px black;
+  padding: 0.5rem 0rem;
+}
+
+.card li:first-child {
+  padding-top: 0rem;
+}
+
+.card li:last-child {
+  border-bottom: none;
+}
+
+.card .sub-list {
+  display: inline-flex;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.2rem;
+  border-radius: 3px;
+  text-align: left;
+}
+
+.card .elena-list {
+  background-color: orange;
+}
+
+.card .luis-list {
+  background-color: var(--color-l-dark);
+}
+
+.card .letter {
+  color: white;
+  border-radius: 20px;
+  padding: 1px 7px;
+  max-height: fit-content;
+}
+
+.card .letter-l {
+  background-color: var(--color-l-light);
+}
+
+.card .letter-e {
+  background-color: #FF7D69;
+}

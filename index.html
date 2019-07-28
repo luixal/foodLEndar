@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title></title>
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/spinner.css" />
+    <link rel="icon" type="image/png" href="images/icons8-healthy-food-calories-calculator-48.png" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://ssense.github.io/vue-carousel/js/vue-carousel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="header">
+        <img class="header-logo" src="images/icons8-healthy-food-calories-calculator-96.png"/>
+        <span class="header-title">foodLEndar</span>
+      </div>
+
+      <carousel v-if="menu.length" :navigate-to="todaysIndex" :per-page-custom="[[0, 1], [600, 5], [768, 7]]" :per-page="1" :scroll-per-page="true">
+        <slide v-for="menuDay in menu">
+
+          <div class="card">
+            <div class="content" :class="{ todays: menuDay.todays }">
+              <h1 class="title">{{menuDay.day}}</h1>
+
+              <div class="lunch">
+                <ul v-if="menuDay.lunchCommon">
+                  <li v-for="common in menuDay.lunchCommon">{{common}}</li>
+                </ul>
+
+                <div v-if="menuDay.lunchLuis" class="sub-list luis-list">
+                  <span class="letter letter-l">L</span>
+                  <ul class="unstyled">
+                    <li v-for="luis in menuDay.lunchLuis">
+                      <span>{{luis}}</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div v-if="menuDay.lunchElena" class="sub-list elena-list">
+                    <span class="letter letter-e">E</span>
+                  <ul class="unstyled">
+                    <li v-for="elena in menuDay.lunchElena">
+                      <span>{{elena}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="dinner">
+                <h3>Cena</h3>
+
+                <ul v-if="menuDay.dinnerCommon">
+                  <li v-for="common in menuDay.dinnerCommon">{{common}}</li>
+                </ul>
+
+                <div v-if="menuDay.dinnerLuis" class="sub-list luis-list">
+                  <span class="letter letter-l">L</span>
+                  <ul class="unstyled">
+                    <li v-for="luis in menuDay.dinnerLuis">
+                      <span>{{luis}}</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div v-if="menuDay.dinnerElena" class="sub-list elena-list">
+                  <span class="letter letter-e">E</span>
+                  <ul class="unstyled">
+                    <li v-for="elena in menuDay.dinnerElena">
+                      <span>{{elena}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </slide>
+      </carousel>
+
+      <div v-else>
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
